@@ -1,34 +1,37 @@
 import { useEffect, useState } from "react";
-import BasicCard from "../src/components/BasicCard";
-import { Post } from "../src/models/posts";
+import CardPost from "../src/components/CardPost";
+import { Post } from "../src/models/PostModel";
+import styles from "../styles/Posts.module.css";
 const axios = require("axios").default;
 
 const Posts = () => {
   useEffect(() => {
-    sendGetRequest();
+    sendGetPostsRequest();
   }, []);
 
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<[] | Post[]>([]);
 
-  const sendGetRequest = () =>
+  const sendGetPostsRequest = () =>
     axios
-      .get("https://jsonplaceholder.typicode.com/posts/?limit=20")
+      .get("https://jsonplaceholder.typicode.com/posts", {
+        params: {
+          _limit: 20,
+        },
+      })
       .then((result: any) => {
-        console.log("result =>", result.data);
         setPosts(result.data);
       });
 
-  console.log({ posts });
   return (
-    <>
+    <div className={styles.main}>
       {posts.length === 0 && <div>No post here</div>}
       {posts.length > 0 &&
-        posts.map((post: Post) => {
-          <div>
-            <BasicCard props={post} />
-          </div>;
-        })}
-    </>
+        posts.map((post: Post) => (
+          <div key={post.id} className={styles.card}>
+            {<CardPost post={post} />}
+          </div>
+        ))}
+    </div>
   );
 };
 
