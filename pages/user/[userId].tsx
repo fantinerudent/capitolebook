@@ -17,6 +17,7 @@ export default function User() {
   useEffect(() => {
     sendGetLastPostsRequest();
     sendGetUserInfoRequest();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const sendGetUserInfoRequest = () =>

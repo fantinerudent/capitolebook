@@ -11,6 +11,7 @@ export default function CardPost({ post: { title, body, userId } }) {
 
   React.useEffect(() => {
     sendGetUserInfoRequest();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const sendGetUserInfoRequest = () =>
