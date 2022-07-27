@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { CacheProvider } from '@emotion/react';
+import { CacheProvider, EmotionCache } from '@emotion/react';
 import theme from '../src/theme';
 import createEmotionCache from '../src/createEmotionCache';
 import ResponsiveAppBar from "../src/components/ResponsiveAppBar";
@@ -13,7 +13,7 @@ import ResponsiveAppBar from "../src/components/ResponsiveAppBar";
   
 const clientSideEmotionCache = createEmotionCache();
   
-export default function MyApp(props) {
+export default function MyApp(props: { Component: any; emotionCache?: EmotionCache | undefined; pageProps: any; }) {
     const { Component, emotionCache = 
         clientSideEmotionCache, pageProps } = props;
   
