@@ -6,15 +6,7 @@ import { UserInfos } from "../models/UserInfosModel";
 import Link from "next/link";
 const axios = require("axios").default;
 
-export default function CardPost({
-  title,
-  body,
-  userId,
-}: {
-  title: string;
-  body: string;
-  userId: number;
-}) {
+const CardPost = (post: any) => {
   const [userInfo, setUserInfo] = React.useState<UserInfos | null>(null);
 
   React.useEffect(() => {
@@ -24,7 +16,7 @@ export default function CardPost({
 
   const sendGetUserInfoRequest = () =>
     axios
-      .get(`https://jsonplaceholder.typicode.com/users/${userId}`)
+      .get(`https://jsonplaceholder.typicode.com/users/${post.userId}`)
       .then((result: any) => {
         setUserInfo(result.data);
       });
@@ -38,10 +30,12 @@ export default function CardPost({
           </Link>
         </Typography>
         <Typography variant="h5" component="div">
-          {title}
+          {post.title}
         </Typography>
-        <Typography variant="body2">{body}</Typography>
+        <Typography variant="body2">{post.body}</Typography>
       </CardContent>
     </Card>
   );
-}
+};
+
+export default CardPost;

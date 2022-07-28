@@ -7,7 +7,7 @@ import CardActions from "@mui/material/CardActions";
 import styles from "../../styles/UsersCard.module.css";
 import Link from "next/link";
 
-export default function ActionAreaCard({ user: { name, email, id } }) {
+export default function ActionAreaCard(user: any) {
   return (
     <Card sx={{ maxWidth: 345 }} className={styles.card}>
       <CardActionArea>
@@ -20,17 +20,17 @@ export default function ActionAreaCard({ user: { name, email, id } }) {
         </div>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {name}
+            {user.name}
           </Typography>
           <Typography gutterBottom variant="subtitle1" component="div">
-            {email}
+            {user.email}
           </Typography>
         </CardContent>
         <CardActions>
           Learn more about
-          <Link href={`/user/${id}`}>
-          <strong> &nbsp; &nbsp; 👉 {name} 👈</strong>
-          </Link>
+          <Link href={`/user/${user.id}`}>
+            <strong> &nbsp; &nbsp; 👉 {user.name} 👈</strong>
+          </Link>s
         </CardActions>
       </CardActionArea>
     </Card>

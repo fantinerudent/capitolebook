@@ -51,7 +51,7 @@ export default function User() {
       <h1>User Page</h1>
       <h2> Last 5 posts from : {userInfo?.name}</h2>
       {lastPosts &&
-        lastPosts.map((post: Post) => (
+        lastPosts.map((post: any) => (
           <div key={post.id} className={styles.card}>
             {<CardPost post={post} />}
           </div>
