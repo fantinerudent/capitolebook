@@ -10,14 +10,14 @@ export default function User() {
   const router = useRouter();
   const userId = router.query.userId;
 
-  const [userInfo, setUserInfo] = useState<UserInfos[] | []>([]);
+  const [userInfo, setUserInfo] = useState<UserInfos | null>(null);
   [];
-  const [lastPosts, setLastPosts] = useState<Post[] | []>([]);
+  const [lastPosts, setLastPosts] = useState<Post[] | null>(null);
 
   useEffect(() => {
     sendGetLastPostsRequest();
     sendGetUserInfoRequest();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const sendGetUserInfoRequest = () =>

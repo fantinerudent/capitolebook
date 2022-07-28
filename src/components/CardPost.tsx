@@ -7,11 +7,11 @@ import Link from "next/link";
 const axios = require("axios").default;
 
 export default function CardPost({ post: { title, body, userId } }) {
-  const [userInfo, setUserInfo] = React.useState<UserInfos[] | []>([]);
+  const [userInfo, setUserInfo] = React.useState<UserInfos | null>(null);
 
   React.useEffect(() => {
     sendGetUserInfoRequest();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const sendGetUserInfoRequest = () =>
