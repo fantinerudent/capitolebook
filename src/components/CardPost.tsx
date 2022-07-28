@@ -6,7 +6,15 @@ import { UserInfos } from "../models/UserInfosModel";
 import Link from "next/link";
 const axios = require("axios").default;
 
-export default function CardPost({ post: { title, body, userId } }) {
+export default function CardPost({
+  title,
+  body,
+  userId,
+}: {
+  title: string;
+  body: string;
+  userId: number;
+}) {
   const [userInfo, setUserInfo] = React.useState<UserInfos | null>(null);
 
   React.useEffect(() => {
