@@ -10,9 +10,9 @@ export default function User() {
   const router = useRouter();
   const userId = router.query.userId;
 
-  const [userInfo, setUserInfo] = useState<UserInfos | null>(null);
+  const [userInfo, setUserInfo] = useState<UserInfos | []>([]);
   [];
-  const [lastPosts, setLastPosts] = useState<Post[] | null>(null);
+  const [lastPosts, setLastPosts] = useState<Post[] | []>([]);
 
   useEffect(() => {
     sendGetLastPostsRequest();

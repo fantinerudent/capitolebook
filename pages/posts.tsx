@@ -26,7 +26,7 @@ const Posts = () => {
     <div className={styles.main}>
       {posts.length === 0 && <div>No post here</div>}
       {posts.length > 0 &&
-        posts.map((post: Post) => (
+        posts.map((post: any) => (
           <div key={post.id} className={styles.card}>
             {<CardPost post={post} />}
           </div>

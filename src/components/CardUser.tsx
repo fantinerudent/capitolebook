@@ -14,23 +14,23 @@ export default function ActionAreaCard(user: any) {
         <div className={styles.img}>
           <Avatar
             alt="random img"
-            src={`https://i.pravatar.cc?img=${id}`}
+            src={`https://i.pravatar.cc?img=${user.user.id}`}
             sx={{ width: 56, height: 56 }}
           />
         </div>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {user.name}
+            {user.user.name}
           </Typography>
           <Typography gutterBottom variant="subtitle1" component="div">
-            {user.email}
+            {user.user.email}
           </Typography>
         </CardContent>
         <CardActions>
           Learn more about
-          <Link href={`/user/${user.id}`}>
-            <strong> &nbsp; &nbsp; 👉 {user.name} 👈</strong>
-          </Link>s
+          <Link href={`/user/${user.user.id}`}>
+            <strong> &nbsp; &nbsp; 👉 {user.user.name} 👈</strong>
+          </Link>
         </CardActions>
       </CardActionArea>
     </Card>

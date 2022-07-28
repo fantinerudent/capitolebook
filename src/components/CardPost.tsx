@@ -9,6 +9,8 @@ const axios = require("axios").default;
 const CardPost = (post: any) => {
   const [userInfo, setUserInfo] = React.useState<UserInfos | null>(null);
 
+  console.log("post =>", post.post);
+
   React.useEffect(() => {
     sendGetUserInfoRequest();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -16,7 +18,7 @@ const CardPost = (post: any) => {
 
   const sendGetUserInfoRequest = () =>
     axios
-      .get(`https://jsonplaceholder.typicode.com/users/${post.userId}`)
+      .get(`https://jsonplaceholder.typicode.com/users/${post.post.userId}`)
       .then((result: any) => {
         setUserInfo(result.data);
       });
@@ -30,9 +32,9 @@ const CardPost = (post: any) => {
           </Link>
         </Typography>
         <Typography variant="h5" component="div">
-          {post.title}
+          {post.post.title}
         </Typography>
-        <Typography variant="body2">{post.body}</Typography>
+        <Typography variant="body2">{post.post.body}</Typography>
       </CardContent>
     </Card>
   );
