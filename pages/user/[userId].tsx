@@ -49,6 +49,32 @@ export default function User() {
       }}
     >
       <h1>User Page</h1>
+      <p>
+        name : <strong> {userInfo?.name} </strong>
+      </p>
+      <p>
+        username : <strong> {userInfo?.username}</strong>
+      </p>
+      <p>
+        email : <strong> {userInfo?.email}</strong>
+      </p>
+      <p>
+        address :
+        <strong>
+          {userInfo?.address.street} , {userInfo?.address.city},
+          {userInfo?.address.zipcode}
+        </strong>
+      </p>
+      <p>
+        phone : <strong>{userInfo?.phone} </strong>
+      </p>
+      <p>
+        website : <strong>{userInfo?.website} </strong>
+      </p>
+      <p>
+        company : <strong>{userInfo?.company.name} </strong>
+      </p>
+
       <h2> Last 5 posts from : {userInfo?.name}</h2>
       {lastPosts &&
         lastPosts.map((post: any) => (
