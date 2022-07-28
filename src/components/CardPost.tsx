@@ -25,8 +25,8 @@ export default function CardPost({ post: { title, body, userId } }) {
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          <Link href={`/user/${userInfo.id}`}>
-            <a>{userInfo.name}</a>
+          <Link href={`/user/${userInfo?.id}`}>
+            <a>{userInfo?.name}</a>
           </Link>
         </Typography>
         <Typography variant="h5" component="div">
