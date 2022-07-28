@@ -9,8 +9,6 @@ const axios = require("axios").default;
 const CardPost = (post: any) => {
   const [userInfo, setUserInfo] = React.useState<UserInfos | null>(null);
 
-  console.log("post =>", post.post);
-
   React.useEffect(() => {
     sendGetUserInfoRequest();
     // eslint-disable-next-line react-hooks/exhaustive-deps

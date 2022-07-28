@@ -9,7 +9,7 @@ const Posts = () => {
     sendGetPostsRequest();
   }, []);
 
-  const [posts, setPosts] = useState<[] | Post[]>([]);
+  const [posts, setPosts] = useState<null | Post[]>(null);
 
   const sendGetPostsRequest = () =>
     axios
@@ -24,8 +24,8 @@ const Posts = () => {
 
   return (
     <div className={styles.main}>
-      {posts.length === 0 && <div>No post here</div>}
-      {posts.length > 0 &&
+      {!posts && <div>No post here</div>}
+      {posts &&
         posts.map((post: any) => (
           <div key={post.id} className={styles.card}>
             {<CardPost post={post} />}
